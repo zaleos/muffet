@@ -30,8 +30,6 @@ func (r *tlsHttpResponse) Body() ([]byte, error) {
 	}()
 	b, err := io.ReadAll(r.response.Body)
 	return b, err
-	defer r.response.Body.Close()
-	return io.ReadAll(r.response.Body)
 }
 
 func (r *tlsHttpResponse) Header(str string) string {
