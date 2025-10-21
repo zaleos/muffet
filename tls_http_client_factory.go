@@ -23,7 +23,7 @@ func (*tls_http_client_factory) Create(o httpClientOptions) httpClient {
 			ReadBufferSize:  o.BufferSize,
 		}),
 		tls_client.WithTimeoutSeconds(int(o.Timeout / time.Second)),
-		tls_client.WithClientProfile(profiles.Firefox_133),
+		tls_client.WithClientProfile(profiles.Opera_91),
 		tls_client.WithCookieJar(tls_client.NewCookieJar()),
 	}
 
