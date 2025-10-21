@@ -6,6 +6,7 @@ import (
 	"time"
 
 	tls_client "github.com/bogdanfinn/tls-client"
+	"github.com/bogdanfinn/tls-client/profiles"
 )
 
 type tls_http_client_factory struct {
@@ -22,6 +23,8 @@ func (*tls_http_client_factory) Create(o httpClientOptions) httpClient {
 			ReadBufferSize:  o.BufferSize,
 		}),
 		tls_client.WithTimeoutSeconds(int(o.Timeout / time.Second)),
+		tls_client.WithClientProfile(profiles.Firefox_133),
+		tls_client.WithCookieJar(tls_client.NewCookieJar()),
 	}
 
 	if o.SkipTLSVerification {
